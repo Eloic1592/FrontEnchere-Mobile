@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import './assets/images/favicon.ico';
 import './assets/css/graindashboard.css';
 import Header from "./Header";
@@ -19,7 +19,7 @@ const Ficheenchere = () => {
 
     // Valeur du formulaire
     const [montant_offre, setMontant_offre] = useState("");
-    const [iden, setIden] = useState(idenchere);
+    const [iden] = useState(idenchere);
     const [errorMessage, setErrorMessage] = useState("");
 
     const rencherir = (event) => {

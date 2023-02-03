@@ -14,15 +14,14 @@ const Listeencheres = () => {
     const [date, setDate] = useState("");
     const [prixvente, setPrixvente] = useState("");
     const [statut, setStatut] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
 
     const rechercher = () => {
-        const detailsenchere = {
-            "nomproduit": nomproduit,
-            "idcategorieproduit": idcategorie,
-            "dateheureenchere": date,
-            "prixminimumvente": prixvente
-        }
+        // const detailsenchere = {
+        //     "nomproduit": nomproduit,
+        //     "idcategorieproduit": idcategorie,
+        //     "dateheureenchere": date,
+        //     "prixminimumvente": prixvente
+        // }
 
 
     }
@@ -118,7 +117,7 @@ const Listeencheres = () => {
                                             <td class="py-3">
                                                 <span class="badge badge-pill badge-success">{item.etatenchere}</span>
                                             </td>
-                                            {item.etatenchere != 'fini' ?
+                                            {item.etatenchere !== 'fini' ?
                                                 < td class="py-3">
                                                     <div class="position-relative">
                                                         <a class="link-dark d-inline-block" href={`/ficheenchere/${item.idenchere}`}>
