@@ -91,7 +91,6 @@ const Listeencheres = () => {
                                     <tr>
                                         <th class="font-weight-semi-bold border-top-0 py-2">Identifiant</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">Nom du produit</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">Photo</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">Prix de vente</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">Date de mise en vente</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">fin de la mise en vente</th>
@@ -113,7 +112,6 @@ const Listeencheres = () => {
                                                     <a href={`/ficheenchere/${item.idenchere}`}>{item.description}</a>
                                                 </div>
                                             </td>
-                                            <td class="py-3"></td>
                                             <td class="py-3">{item.prixminimumvente} Ariary</td>
                                             <td class="py-3">{item.dateheureenchere}</td>
                                             <td class="py-3">{item.datefin}</td>
