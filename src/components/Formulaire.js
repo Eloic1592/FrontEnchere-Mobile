@@ -2,7 +2,6 @@ import React, { Component, useState } from "react";
 import './assets/images/favicon.ico';
 import './assets/css/graindashboard.css';
 import Link from "../route/route";
-import axios from "axios";
 
 
 const Formulaire = () => {
@@ -29,8 +28,9 @@ const Formulaire = () => {
             .then(response => {
                 if (!response.ok) {
                     setErrorMessage('Email ou mot de passe incorrect');
-                    throw Error(response.statusText);
                     alert(errorMessage);
+                    throw Error(response.statusText);
+
                 }
                 return response.json();
             })
