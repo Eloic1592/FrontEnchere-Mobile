@@ -47,19 +47,18 @@ const Header = () => {
                                 <span><a className="nav-link" href="historique">Historique</a></span>
                             </li>
                             <li className="nav-item">
-                                <span><a className="nav-link" href="listeenchere">Liste des encheres</a></span>
+                                <span><button className="nav-link" href="listeenchere">Liste des encheres</button></span>
                             </li>
                             <li className="nav-item">
                             </li>
                         </ul>
                     </div>
                     <div className="navbar-nav">
-                        <a id="profileMenuInvoker" class="header-complex-invoker" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-target="#profileMenu" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
 
-                            <span class="mr-md-2 avatar-placeholder">U</span>
-                            <span class="d-none d-md-block">Utilisateur</span>
-                        </a>
-                        <a className="nav-link" onClick={deconnecter}> Deconnexion</a>
+
+                        <span class="mr-md-2 avatar-placeholder">U</span>
+                        <span class="d-none d-md-block">Utilisateur</span>
+                        <button className="nav-link" onClick={deconnecter}> Deconnexion</button>
                     </div>
                 </nav>
             </header >
