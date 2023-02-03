@@ -18,9 +18,11 @@ const Ficheenchere = () => {
     const ficheenchere = useData(link + "fichesenchere/" + idenchere);
 
     // Valeur du formulaire
-    const [montant_offre, setMontant_offre] = useState("");
+    const [montant_offre, setMontant_offre] = useState(0);
     const [iden] = useState(idenchere);
     const [errorMessage, setErrorMessage] = useState("");
+    const soldeactuel = useData(link + "account/" + localStorage.getItem("idutilisateur"));
+
 
     const rencherir = (event) => {
         event.preventDefault();
@@ -34,27 +36,34 @@ const Ficheenchere = () => {
                 "idutilisateur": localStorage.getItem("idutilisateur"),
                 "montantOffre": montant_offre
             }
-            fetch(link + 'surenchere', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(surenchere)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        setErrorMessage('Votre mise n\'a pas ete valide');
-                        throw Error(response.statusText);
-                    }
-                    return response.json();
+            if (parseInt(montant_offre, 10) > parseInt(soldeactuel.solde, 10)) {
+                setErrorMessage('Votre mise est au dessus de votre solde actuel!');
+                alert(errorMessage);
+            }
+            else {
+                fetch(link + 'surenchere', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(surenchere)
                 })
-                .then(data => {
-                    if (data == null) {
-                        setErrorMessage('Votre mise n\'a pas ete valide');
-                        alert(errorMessage);
-                    } else {
-                        alert("Votre mise a bien ete enregistree!");
-                        window.location.replace('/listeenchere');
-                    }
-                })
+                    .then(response => {
+                        if (!response.ok) {
+                            setErrorMessage('Votre mise n\'a pas ete valide');
+                            throw Error(response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data == null) {
+                            setErrorMessage('Votre mise n\'a pas ete valide');
+                            alert(errorMessage);
+
+                        } else {
+                            alert("Votre mise a bien ete enregistree!");
+                            window.location.replace('/listeenchere');
+                        }
+                    })
+            }
 
         }
     };

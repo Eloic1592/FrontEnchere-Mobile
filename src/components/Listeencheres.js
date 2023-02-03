@@ -115,7 +115,7 @@ const Listeencheres = () => {
                                             <td class="py-3">{item.dateheureenchere}</td>
                                             <td class="py-3">{item.datefin}</td>
                                             <td class="py-3">
-                                                <span class="badge badge-pill badge-success">{item.etatenchere}</span>
+                                                <span class="badge badge-pill badge-success">{item.statut}</span>
                                             </td>
                                             {item.etatenchere !== 'fini' ?
                                                 < td class="py-3">

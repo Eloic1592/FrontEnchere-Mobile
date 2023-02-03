@@ -6,8 +6,8 @@ import Link from "../route/route";
 
 const Formulaire = () => {
     // Email et mot de passe +link
-    const [email, setEmail] = useState('admin@gmail.com');
-    const [password, setPassword] = useState('admin');
+    const [email, setEmail] = useState('Poseidon');
+    const [password, setPassword] = useState('Poseidon');
     const [errorMessage, setErrorMessage] = useState("");
 
     const link = Link.getUseLink();

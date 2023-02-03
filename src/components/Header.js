@@ -1,4 +1,6 @@
 import React from 'react';
+import useData from "../route/useData";
+import Link from "../route/route";
 
 const Header = () => {
     const deconnecter = () => {
@@ -6,6 +8,7 @@ const Header = () => {
         localStorage.removeItem("idutilisateur");
         window.location.replace("/formulaire");
     }
+
 
     if (localStorage.getItem("token") == null || localStorage.getItem("idutilisateur") == null) {
         return (
@@ -34,6 +37,8 @@ const Header = () => {
             </header >
         );
     } else if (localStorage.getItem("token") != null && localStorage.getItem("idutilisateur") != null) {
+        const link = Link.getUseLink();
+        const soldeactuel = useData(link + "account/" + localStorage.getItem("idutilisateur"));
         return (
             <header style={{ backgroundColor: 'transparent' }}>
                 <nav className="navbar navbar-expand-lg navbar-light">
@@ -50,6 +55,10 @@ const Header = () => {
                                 <span><button className="nav-link" href="listeenchere">Liste des encheres</button></span>
                             </li>
                             <li className="nav-item">
+
+                            </li>
+                            <li className="nav-item">
+                                <span className="nav-link">Votre solde actuel est de:{soldeactuel.solde} Ariary</span>
                             </li>
                         </ul>
                     </div>
